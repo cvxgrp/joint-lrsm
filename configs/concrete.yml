@@ -1,0 +1,36 @@
+dataset: 'concrete'
+
+model:
+  loss: 'quantile_loss'
+  loss_kwargs: {quantile: 0.9, intercept: True}
+  reg: 'sum_squares_reg'
+  reg_kwargs: {lambd: 1.0e-2}
+  coef: {lambd_1: 5.0, lambd_2: 10.0, eta: 0.001, mu: 0.002} # MAPG
+  # coef: {lambd_1: 100.0, lambd_2: 1000.0, eta: 0.001, mu: 0.002} # LogDiagBi
+  # coef: {lambd_1: 50.0, lambd_2: 500.0, eta: 0.001, mu: 0.002} # TrConstraintBi
+  
+optim:
+  # alg: 'Org'
+  # rel_tol: 1.0e-3
+  # abs_tol: 1.0e-3
+  # maxiter: 1000
+  # n_jobs: 4
+  alg: 'MAPG'
+  alpha_x: 0.01
+  alpha_y: 1.0e-4
+  res_tol: 1.0e-4
+  max_iter: 15000
+  patience: 2000
+  n_jobs: 4
+  # alg: 'TrConstraintBi'
+  # rel_tol: 1.0e-3
+  # abs_tol: 1.0e-3
+  # res_tol: 1.0e-4
+  # max_iter: 50
+  # n_jobs: 4
+  # alg: 'LogDiagBi'
+  # rel_tol: 1.0e-3
+  # abs_tol: 1.0e-3
+  # res_tol: 1.0e-4
+  # max_iter: 50
+  # n_jobs: 4

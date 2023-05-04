@@ -1,0 +1,38 @@
+dataset: 'wine'
+
+model:
+  loss: 'logistic_loss'
+  loss_kwargs: {intercept: True}
+  reg: 'L1_reg'
+  reg_kwargs: {lambd: 1.0e-2}
+  coef: {lambd_1: 5.0, lambd_2: 0.002, eta: 0.1, mu: 0.2} # MAPG
+  # coef: {lambd_1: 5.0, lambd_2: 0.002, eta: 0.1, mu: 0.2} # LogDiagBi
+  # coef: {lambd_1: 500.0, lambd_2: 0.2, eta: 0.1, mu: 0.2} # TrConstraintBi
+
+optim:
+  # alg: 'Org'
+  # rel_tol: 1.0e-3
+  # abs_tol: 1.0e-3
+  # maxiter: 500
+  # n_jobs: 2
+  # rho: 2.
+  # max_cg_iterations: 30
+  alg: 'MAPG'
+  alpha_x: 1.0e-3
+  alpha_y: 1.0e-4
+  res_tol: 1.0e-3
+  max_iter: 1000
+  patience: 100
+  n_jobs: 2
+  # alg: 'LogDiagBi'
+  # rel_tol: 1.0e-3
+  # abs_tol: 1.0e-3
+  # res_tol: 1.0e-3
+  # max_iter: 50
+  # n_jobs: 2
+  # alg: 'TrConstraintBi'
+  # rel_tol: 1.0e-3
+  # abs_tol: 1.0e-3
+  # res_tol: 1.0e-3
+  # max_iter: 50
+  # n_jobs: 2

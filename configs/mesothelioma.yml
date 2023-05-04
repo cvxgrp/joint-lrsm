@@ -1,0 +1,26 @@
+dataset: 'mesothelioma'
+
+model:
+  loss: 'logistic_loss'
+  loss_kwargs: {intercept: True}
+  reg: 'sum_squares_reg'
+  reg_kwargs: {lambd: 0.2} # MAPG
+  # reg_kwargs: {lambd: 0.3} # Org
+  coef: {lambd_1: 100, lambd_2: 12.0, eta: 0.1, mu: 20.0}
+  
+optim:
+  # alg: 'Org'
+  # rel_tol: 1.0e-5
+  # abs_tol: 1.0e-5
+  # maxiter: 500
+  # n_jobs: 2
+  # verbose: False
+  # rho: 2.
+  # max_cg_iterations: 30
+  alg: 'MAPG'
+  alpha_x: 1.0e-3
+  alpha_y: 1.0e-4
+  res_tol: 1.0e-5
+  max_iter: 2000
+  patience: 2000
+  n_jobs: 2
